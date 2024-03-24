@@ -84,7 +84,8 @@ function condenseWeather(condition) {
     condition.includes("fog") ||
     condition.includes("ash")) {
     return "scattered";
-  } else return "N/A";
+  } else {return "N/A";}
+  return "N/A";
 }
 /*
 * Choose weather icon to display based on weather conditition code
@@ -154,8 +155,8 @@ const clock = new ClockFace({
     const dayName = require("date_utils").dow(date.getDay(), 1);
     let steps = Bangle.getHealthStatus("day").steps;
     let curr = w.get(); // Get weather from weather app.
-    const temp = locale.temp(curr.temp - 273.15).match(/^(\D*\d*)(.*)$/);
-    let w_icon = chooseIcon(curr.txt);
+   // const temp = locale.temp(curr.temp - 273.15).match(/^(\D*\d*)(.*)$/);
+  //  let w_icon = chooseIcon(curr.txt);
 
 
     g.setFontAlign(1, 0).setFont("Vector", 90 * this.scale);
