@@ -5,7 +5,7 @@ const locale = require("locale");
 function getSun() {
   return require("heatshrink").decompress(atob("mEwwhC/AH4AbhvQC6vd7ouVC4IwUCwIwUFwQwQCYgAHDZQXc9wACC6QWDDAgXN7wXF9oXPCwowDC5guGGAYXMCw4wCC5RGJJAZGTJBiNISIylQVJrLCC5owGF65fXR7AwBC5jvhC7JIILxapDFxAXOGAy9KC4owGBAQXODAgHDC54AHC8T0FAAQSOGg4qPGA4WUGAIuVC7AA/AH4AEA="));
 }
-function getPartSun() { 
+function getPartSun() {
   return require("heatshrink").decompress(atob("mEwwhC/AH4AY6AWVhvdC6vd7owUFwIABFiYAFGR4Xa93u9oXTCwIYDC6HeC4fuC56MBC4ySOIwpIQXYQXHmYABRpwXECwQYKF5HjC4kwL5gQCAYYwO7wqFAAowK7wWKJBgXLJBPd6YX/AAoVMAAM/Cw0DC5yRHCx5JGFyAwGCyIwFC/4XyR4inXa64wRFwowQCw4A/AH4AkA"));
 }
 function getCloud() {
@@ -35,26 +35,26 @@ sent from gadget bridge.
 */
 function chooseIcon(condition) {
   condition = condition.toLowerCase();
-  if (condition.includes("thunderstorm")||
-    condition.includes("squalls")||
+  if (condition.includes("thunderstorm") ||
+    condition.includes("squalls") ||
     condition.includes("tornado")) return getStorm;
-  if (condition.includes("freezing")||condition.includes("snow")||
+  if (condition.includes("freezing") || condition.includes("snow") ||
     condition.includes("sleet")) {
     return getSnow;
   }
-  if (condition.includes("drizzle")||
-    condition.includes("shower")||
+  if (condition.includes("drizzle") ||
+    condition.includes("shower") ||
     condition.includes("rain")) return getRain;
   if (condition.includes("clear")) return getSun;
   if (condition.includes("clouds")) return getCloud;
-  if (condition.includes("few clouds")||
-    condition.includes("scattered clouds")||
-    condition.includes("mist")||
-    condition.includes("smoke")||
-    condition.includes("haze")||
-    condition.includes("sand")||
-    condition.includes("dust")||
-    condition.includes("fog")||
+  if (condition.includes("few clouds") ||
+    condition.includes("scattered clouds") ||
+    condition.includes("mist") ||
+    condition.includes("smoke") ||
+    condition.includes("haze") ||
+    condition.includes("sand") ||
+    condition.includes("dust") ||
+    condition.includes("fog") ||
     condition.includes("ash")) {
     return getPartSun;
   }
@@ -70,10 +70,10 @@ function chooseIconByCode(code) {
   switch (codeGroup) {
     case 2: return getStorm;
     case 3: return getRain;
-    case 5: 
+    case 5:
       switch (code) {
-          case 511: return getSnow;
-          default: return getRain;
+        case 511: return getSnow;
+        default: return getRain;
       }
     case 6: return getSnow;
     case 7: return getPartSun;
@@ -128,7 +128,8 @@ const clock = new ClockFace({
     const monthName = require("date_utils").month(month, 1);
     const dayName = require("date_utils").dow(date.getDay(), 1);
     let steps = Bangle.getHealthStatus("day").steps;
-    const temp = locale.temp(curr.temp-273.15).match(/^(\D*\d*)(.*)$/);
+    let curr = w.get(); // Get weather from weather app.
+    const temp = locale.temp(curr.temp - 273.15).match(/^(\D*\d*)(.*)$/);
 
     g.setFontAlign(1, 0).setFont("Vector", 90 * this.scale);
     g.drawString(format(hour), this.centerTimeScaleX, this.center.y - 31 * this.scale);
@@ -138,14 +139,14 @@ const clock = new ClockFace({
 
     g.setFontAlign(-1, 0).setFont("Vector", 16 * this.scale);
     g.drawString(format(date.getDate()), this.centerDatesScaleX, this.center.y - 62 * this.scale);  //26
-    g.drawString("."+ format(month) + ".", this.centerDatesScaleX + 20, this.center.y - 62 * this.scale);  //44
-    g.drawString(date.getFullYear(date), this.centerDatesScaleX , this.center.y - 46 * this.scale); //62
-    if (this.showWeekNum) 
-    g.drawString("CW" + format(ISO8601_week_no(date)), this.centerDatesScaleX , this.center.y + -30 * this.scale); //15
+    g.drawString("." + format(month) + ".", this.centerDatesScaleX + 20, this.center.y - 62 * this.scale);  //44
+    g.drawString(date.getFullYear(date), this.centerDatesScaleX, this.center.y - 46 * this.scale); //62
+    if (this.showWeekNum)
+      g.drawString("CW" + format(ISO8601_week_no(date)), this.centerDatesScaleX, this.center.y + -30 * this.scale); //15
     g.drawString(temp + " °C", this.centerDatesScaleX, this.center.y + 48 * this.scale);
     g.drawString(curr.txt, this.centerDatesScaleX, this.center.y + 66 * this.scale);
     g.drawString(steps, this.centerDatesScaleX, this.center.y + 66 * this.scale);
-    
+
   },
   settingsFile: "ffcniftyapp.json"
 });
