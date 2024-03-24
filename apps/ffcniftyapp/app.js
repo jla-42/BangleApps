@@ -60,7 +60,32 @@ function chooseIcon(condition) {
   }
   return getCloud;
 }
-
+function condenseWeather(condition) {
+  condition = condition.toLowerCase();
+  if (condition.includes("thunderstorm") ||
+    condition.includes("squalls") ||
+    condition.includes("tornado")) return "storm";
+  if (condition.includes("freezing") || condition.includes("snow") ||
+    condition.includes("sleet")) {
+    return "snow";
+  }
+  if (condition.includes("drizzle") ||
+    condition.includes("shower") ||
+    condition.includes("rain")) return "rain";
+  if (condition.includes("clear")) return "clear";
+  if (condition.includes("clouds")) return "cloudy";
+  if (condition.includes("few clouds") ||
+    condition.includes("scattered clouds") ||
+    condition.includes("mist") ||
+    condition.includes("smoke") ||
+    condition.includes("haze") ||
+    condition.includes("sand") ||
+    condition.includes("dust") ||
+    condition.includes("fog") ||
+    condition.includes("ash")) {
+    return "scattered";
+  } else return "N/A";
+}
 /*
 * Choose weather icon to display based on weather conditition code
 * https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
@@ -145,9 +170,9 @@ const clock = new ClockFace({
     g.drawString(date.getFullYear(date), this.centerDatesScaleX, this.center.y - 46 * this.scale); //62
     if (this.showWeekNum)
     g.drawString("CW" + format(ISO8601_week_no(date)), this.centerDatesScaleX, this.center.y + -30 * this.scale); //15
-    //g.drawString(curr.txt, this.centerDatesScaleX, this.center.y + 24 * this.scale);
+    g.drawString(condenseWeather(curr.txt), this.centerDatesScaleX, this.center.y + 24 * this.scale);
     
-    g.drawImage(w_icon, this.centerDatesScaleX, this.center.y + 24 * this.scale);
+    //g.drawImage(w_icon, this.centerDatesScaleX, this.center.y + 24 * this.scale);
 
     g.drawString(curr.temp - 273 + " °C", this.centerDatesScaleX, this.center.y + 52 * this.scale); //48
     g.drawString(steps, this.centerDatesScaleX, this.center.y + 66 * this.scale);
