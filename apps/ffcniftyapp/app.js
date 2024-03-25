@@ -3,30 +3,33 @@ const locale = require("locale");
 
 // Weather icons from https://icons8.com/icon/set/weather/color
 function getSun() {
-  return require("heatshrink").decompress(atob("mEwwhC/AH4AbhvQC6vd7ouVC4IwUCwIwUFwQwQCYgAHDZQXc9wACC6QWDDAgXN7wXF9oXPCwowDC5guGGAYXMCw4wCC5RGJJAZGTJBiNISIylQVJrLCC5owGF65fXR7AwBC5jvhC7JIILxapDFxAXOGAy9KC4owGBAQXODAgHDC54AHC8T0FAAQSOGg4qPGA4WUGAIuVC7AA/AH4AEA="));
+  return require("heatshrink").decompress(atob("kEggILIgOAAZkDAYPAgeBwPAgIFBBgPhw4TBp/yAYMcnADBnEcAYMwhgDBsEGgE/AYP8AYYLDCYgbDEYYrD8fHIwI7CIYZLDL54AHA=="));
 }
 function getPartSun() {
-  return require("heatshrink").decompress(atob("mEwwhC/AH4AY6AWVhvdC6vd7owUFwIABFiYAFGR4Xa93u9oXTCwIYDC6HeC4fuC56MBC4ySOIwpIQXYQXHmYABRpwXECwQYKF5HjC4kwL5gQCAYYwO7wqFAAowK7wWKJBgXLJBPd6YX/AAoVMAAM/Cw0DC5yRHCx5JGFyAwGCyIwFC/4XyR4inXa64wRFwowQCw4A/AH4AkA"));
+  return require("heatshrink").decompress(atob("kEggIHEmADJjEwsEAjkw8EAh0B4EAg35wEAgP+CYMDwv8AYMDBAP2g8HgH+g0DBYMMgPwAYX8gOMEwMG3kAg8OvgSBjg2BgcYGQIcBAY5CBg0Av//HAM///4MYgNBEIMOCoUMDoUAnBwGkEA"));
 }
 function getCloud() {
-  return require("heatshrink").decompress(atob("mEwwhC/AH4A/AH4AtgczmYWWDCgWDmcwIKAuEGBoSGGCAWKC7BIKIxYX6CpgABn4tUSJIWPJIwuQGAwWRGAoX/C+SPEU67XXGCIuFGCAWHAH4A/AH4A/ADg="));
+  return require("heatshrink").decompress(atob("kEggIfcj+AAYM/8ADBuFwAYPAmADCCAMBwEf8ADBhFwg4aBnEPAYMYjAVBhgDDDoQDHCYc4jwDB+EP///FYIDBMTgA=="));
 }
 function getSnow() {
-  return require("heatshrink").decompress(atob("mEwwhC/AH4AhxGAC9YUBC4QZRhAVBAIWIC6QAEI6IYEI5cIBgwWOC64NCKohHPNox3RBgqnQEo7XPHpKONR5AXYAH4ASLa4XWXILiBC6r5LDBgWWDBRrKC5hsCEacIHawvMCIwvQC5QvQFAROEfZ5ADLJ4YGCywvVI7CPGC9IA/AH4AF"));
+  return require("heatshrink").decompress(atob("kEggITQj/AAYM98ADBsEwAYPAjADCj+AgOAj/gAYMIuEHwEAjEPAYQVChk4AYQhCAYcYBYQTDnEPgEB+EH///IAQACE4IAB8EICIPghwDB4EeBYNAjgDBg8EAYQYCg4bCgZuFA=="));
 }
 function getRain() {
-  return require("heatshrink").decompress(atob("mEwwhC/AH4AFgczmYWWDCgWDmcwIKAuEGBoSGGCAWKC7BIKIxYX6CpgABn4tUSJIWPJIwuQGAwWRGAoX/C+SPEU67XXGCIuFGCAWHAGeIBJEIwAVJhGIC5AJBC5QMJEJQMEC44JBC6QSCC54FHLxgNBBgYSEDgKpPMhQXneSwuUAH4A/AA4="));
+  return require("heatshrink").decompress(atob("kEggIPMh+AAYM/8ADBuFwAYPgmADB4EbAYOAj/ggOAhnwg4aBnAeCjEcCIMMjADCDoQDHjAPCnAXCuEP///8EDAYJECAAXBwkAgPDhwDBwUMgEEhkggEOjFgFgMQLYQAOA=="));
 }
 function getStorm() {
-  return require("heatshrink").decompress(atob("mEwwhC/AFEzmcwCyoYUgYXDmYuVGAY0OFwocHC6pNLCxYXYJBQXuCxhhJRpgYKCyBKFFyIXFCyJIFC/4XaO66nU3eza6k7C4IWFGBwXBCwwwO3ewC5AZMC6RaCIxZiI3e7AYYwRCQIIBC4QwPIQIpDC5owDhYREIxgAEFIouNC4orDFyBGBGAcLC6BaFhYWRLSRIFISQXcCyqhRAH4Az"));
+  return require("heatshrink").decompress(atob("kcjwIROgfwAYMB44ICsEwAYMYgYQCgAICoEHCwMYgFDwEHCYfgEAMA4AIBmAXCgUGFIVAwADBhEQFIQtCGwNggPgjAVBngCBv8Oj+AgfjwYpCGAIABn4kBgOBBAVwjBHBD4IdBgYNBGwUAkCdbA="));
 }
 // err icon - https://icons8.com/icons/set/error
 function getErr() {
-  return require("heatshrink").decompress(atob("mEwwkBiIA/AH4AZUAIWUiAXBWqgXXdIYuVGCgXBgICCIyYXCJCQTDC6QrEMCQSEJCQRFC6ApGJCCiDDQSpQFAYXEJBqNGJCA/EC4ZIOEwgXFJBgNEAhKlNAgxIKBgoXEJBjsLC5TsIeRycMBhRrMMBKzQEozjOBxAgHGww+IA6wfSH4hnIC47OMSJqlRIJAXCACIXaGoQARPwwuTAH4A/ABw"));
+  return require("heatshrink").decompress(atob("kEggILIgOAAYsD4ADBg/gAYMGsADBhkwAYsYjADCjgDBmEMAYNxxwDBsOGAYPBwYDEgOBwOAgYDB4EDHYPAgwDBsADDhgDBFIcwjAHBjE4AYMcmADBhhNCKIcG/4AGOw4A=="));
 }
 function getDummy() {
   return require("heatshrink").decompress(atob("gMBwMAwA"));
 }
+
+
+
 
 /**
 Choose weather icon to display based on condition.
@@ -73,7 +76,7 @@ function condenseWeather(condition) {
     condition.includes("shower") ||
     condition.includes("rain")) return "rain";
   if (condition.includes("clear")) return "clear";
-  if (condition.includes("clouds")) return "cloudy";
+  if (condition.includes("clouds")) return "clouds";
   if (condition.includes("few clouds") ||
     condition.includes("scattered clouds") ||
     condition.includes("mist") ||
@@ -87,31 +90,7 @@ function condenseWeather(condition) {
   } else {return "N/A";}
   return "N/A";
 }
-/*
-* Choose weather icon to display based on weather conditition code
-* https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
-*/
-function chooseIconByCode(code) {
-  const codeGroup = Math.round(code / 100);
-  switch (codeGroup) {
-    case 2: return getStorm;
-    case 3: return getRain;
-    case 5:
-      switch (code) {
-        case 511: return getSnow;
-        default: return getRain;
-      }
-    case 6: return getSnow;
-    case 7: return getPartSun;
-    case 8:
-      switch (code) {
-        case 800: return getSun;
-        case 804: return getCloud;
-        default: return getPartSun;
-      }
-    default: return getCloud;
-  }
-}
+
 // copied from: https://gist.github.com/IamSilviu/5899269#gistcomment-3035480
 function ISO8601_week_no(date) {
   var tdt = new Date(date.valueOf());
@@ -156,7 +135,7 @@ const clock = new ClockFace({
     let steps = Bangle.getHealthStatus("day").steps;
     let curr = w.get(); // Get weather from weather app.
    // const temp = locale.temp(curr.temp - 273.15).match(/^(\D*\d*)(.*)$/);
-  //  let w_icon = chooseIcon(curr.txt);
+    let w_icon = chooseIcon(curr.txt);
 
 
     g.setFontAlign(1, 0).setFont("Vector", 90 * this.scale);
@@ -168,14 +147,15 @@ const clock = new ClockFace({
     g.setFontAlign(-1, 0).setFont("Vector", 16 * this.scale);
     g.drawString(format(date.getDate()), this.centerDatesScaleX, this.center.y - 62 * this.scale);  //26
     g.drawString("." + format(month) + ".", this.centerDatesScaleX + 20, this.center.y - 62 * this.scale);  //44
-    g.drawString(date.getFullYear(date), this.centerDatesScaleX, this.center.y - 46 * this.scale); //62
+    g.drawString(date.getFullYear(date), this.centerDatesScaleX, this.center.y - 44 * this.scale); //62
     if (this.showWeekNum)
-    g.drawString("CW" + format(ISO8601_week_no(date)), this.centerDatesScaleX, this.center.y + -30 * this.scale); //15
-    g.drawString(condenseWeather(curr.txt), this.centerDatesScaleX, this.center.y + 24 * this.scale);
-    
-    //g.drawImage(w_icon, this.centerDatesScaleX, this.center.y + 24 * this.scale);
+    g.drawString("CW" + format(ISO8601_week_no(date)), this.centerDatesScaleX, this.center.y + -26 * this.scale); //15
+   // print(w_icon());
+    g.drawImage(w_icon(), this.centerDatesScaleX + 6,this.center.y -8* this.scale);
+   // g.drawString(condenseWeather(curr.txt), this.centerDatesScaleX, this.center.y + 24 * this.scale);
 
-    g.drawString(curr.temp - 273 + " °C", this.centerDatesScaleX, this.center.y + 52 * this.scale); //48
+
+    g.drawString(curr.temp - 273 + "°C", this.centerDatesScaleX, this.center.y + 44 * this.scale); //48
     g.drawString(steps, this.centerDatesScaleX, this.center.y + 66 * this.scale);
 
   },
