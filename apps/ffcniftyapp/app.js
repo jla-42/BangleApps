@@ -151,7 +151,7 @@ const clock = new ClockFace({
     if (this.showWeekNum)
     g.drawString("CW" + format(ISO8601_week_no(date)), this.centerDatesScaleX, this.center.y + -26 * this.scale); //15
    // print(w_icon());
-    g.drawImage(w_icon(), this.centerDatesScaleX + 6,this.center.y -8* this.scale);
+    g.drawImage(w_icon(), this.centerDatesScaleX ,this.center.y -8* this.scale);
    // g.drawString(condenseWeather(curr.txt), this.centerDatesScaleX, this.center.y + 24 * this.scale);
 
 
