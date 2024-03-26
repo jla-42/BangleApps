@@ -1,7 +1,13 @@
-(function (back) {
-  const settings = Object.assign({ showWeekNum: false, showWeather: false, showSteps: false }, require("Storage").readJSON("ffcniftyapp.json", true));
 
+(function (back) {
+  var DEFAULTS = {
+    'showWeekNum': false,
+    'showWeather': false,
+    'showSteps': false,
+  };
+  let settings = require('Storage').readJSON("ffcniftyapp.json", 1) || DEFAULTS;
   E.showMenu({
+    
     "": { "title": "Nifty-A Clock ++" },
     "< Back": () => back(),
     /*LANG*/"Show Week Number": {
