@@ -10,6 +10,20 @@
         settings.showWeekNum = v;
         require("Storage").writeJSON("ffcniftyapp.json", settings);
       }
-    }
+    },
+    /*LANG*/"Show Weather": {
+      value: settings.showWeather,
+      onchange: v => {
+        settings.showWeather = v;
+        require("Storage").writeJSON("ffcniftyapp.json", settings);
+      }
+    },
+        /*LANG*/"Show Steps": {
+          value: settings.showSteps,
+          onchange: v => {
+            settings.showSteps = v;
+            require("Storage").writeJSON("ffcniftyapp.json", settings);
+          }
+        }
   });
 })

@@ -87,7 +87,7 @@ function condenseWeather(condition) {
     condition.includes("fog") ||
     condition.includes("ash")) {
     return "scattered";
-  } else {return "N/A";}
+  } else { return "N/A"; }
   return "N/A";
 }
 
@@ -134,7 +134,7 @@ const clock = new ClockFace({
     const dayName = require("date_utils").dow(date.getDay(), 1);
     let steps = Bangle.getHealthStatus("day").steps;
     let curr = w.get(); // Get weather from weather app.
-   // const temp = locale.temp(curr.temp - 273.15).match(/^(\D*\d*)(.*)$/);
+    // const temp = locale.temp(curr.temp - 273.15).match(/^(\D*\d*)(.*)$/);
     let w_icon = chooseIcon(curr.txt);
 
 
@@ -149,14 +149,16 @@ const clock = new ClockFace({
     g.drawString("." + format(month) + ".", this.centerDatesScaleX + 20, this.center.y - 62 * this.scale);  //44
     g.drawString(date.getFullYear(date), this.centerDatesScaleX, this.center.y - 44 * this.scale); //62
     if (this.showWeekNum)
-    g.drawString("CW" + format(ISO8601_week_no(date)), this.centerDatesScaleX, this.center.y + -26 * this.scale); //15
-   // print(w_icon());
-    g.drawImage(w_icon(), this.centerDatesScaleX ,this.center.y -8* this.scale);
-   // g.drawString(condenseWeather(curr.txt), this.centerDatesScaleX, this.center.y + 24 * this.scale);
+      g.drawString("CW" + format(ISO8601_week_no(date)), this.centerDatesScaleX, this.center.y + -26 * this.scale); //15
+    // print(w_icon());
+    if (this.showWeather) {
+      g.drawImage(w_icon(), this.centerDatesScaleX, this.center.y - 8 * this.scale);
+      // g.drawString(condenseWeather(curr.txt), this.centerDatesScaleX, this.center.y + 24 * this.scale);
+      g.drawString(curr.temp - 273 + "°C", this.centerDatesScaleX, this.center.y + 44 * this.scale); //48
 
-
-    g.drawString(curr.temp - 273 + "°C", this.centerDatesScaleX, this.center.y + 44 * this.scale); //48
-    g.drawString(steps, this.centerDatesScaleX, this.center.y + 66 * this.scale);
+    }
+    if (this.showSteps)
+      g.drawString(steps, this.centerDatesScaleX, this.center.y + 66 * this.scale);
 
   },
   settingsFile: "ffcniftyapp.json"
