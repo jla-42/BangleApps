@@ -1,5 +1,5 @@
 (function (back) {
-  const settings = Object.assign({ showWeekNum: true }, require("Storage").readJSON("ffcniftyapp.json", true));
+  const settings = Object.assign({ showWeekNum: false, showWeather: false, showSteps: false }, require("Storage").readJSON("ffcniftyapp.json", true));
 
   E.showMenu({
     "": { "title": "Nifty-A Clock ++" },
@@ -13,15 +13,15 @@
     },
     /*LANG*/"Show Weather": {
       value: settings.showWeather,
-      onchange: v => {
-        settings.showWeather = v;
+      onchange: w => {
+        settings.showWeather = w;
         require("Storage").writeJSON("ffcniftyapp.json", settings);
       }
     },
         /*LANG*/"Show Steps": {
           value: settings.showSteps,
-          onchange: v => {
-            settings.showSteps = v;
+          onchange: z => {
+            settings.showSteps = z;
             require("Storage").writeJSON("ffcniftyapp.json", settings);
           }
         }
