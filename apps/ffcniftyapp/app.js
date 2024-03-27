@@ -41,16 +41,16 @@ function chooseIcon(condition) {
   if (condition.includes("thunderstorm") ||
     condition.includes("squalls") ||
     condition.includes("tornado")) return getStorm;
-  if (condition.includes("freezing") || condition.includes("snow") ||
+  else if (condition.includes("freezing") || condition.includes("snow") ||
     condition.includes("sleet")) {
     return getSnow;
   }
-  if (condition.includes("drizzle") ||
+  else if (condition.includes("drizzle") ||
     condition.includes("shower") ||
     condition.includes("rain")) return getRain;
-  if (condition.includes("clear")) return getSun;
-  if (condition.includes("clouds")) return getCloud;
-  if (condition.includes("few clouds") ||
+  else if (condition.includes("clear")) return getSun;
+  else if (condition.includes("clouds")) return getCloud;
+  else if (condition.includes("few clouds") ||
     condition.includes("scattered clouds") ||
     condition.includes("mist") ||
     condition.includes("smoke") ||
@@ -60,8 +60,7 @@ function chooseIcon(condition) {
     condition.includes("fog") ||
     condition.includes("ash")) {
     return getPartSun;
-  }
-  return getCloud;
+  } else return getCloud;
 }
 function condenseWeather(condition) {
   condition = condition.toLowerCase();
