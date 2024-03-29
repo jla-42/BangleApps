@@ -37,7 +37,7 @@ Based on function from the Bangle weather app so it should handle all of the con
 sent from gadget bridge.
 */
 function chooseIcon(condition) {
-  condition = condition === undefined ? "no data" condition.toLowerCase();
+  condition = condition === undefined ? "no data" : condition.toLowerCase();
   if (condition.includes("thunderstorm") ||
     condition.includes("squalls") ||
     condition.includes("tornado")) return getStorm;
