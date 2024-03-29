@@ -37,7 +37,7 @@ Based on function from the Bangle weather app so it should handle all of the con
 sent from gadget bridge.
 */
 function chooseIcon(condition) {
-  condition = condition.toLowerCase();
+  condition = condition === undefined ? "no data" condition.toLowerCase();
   if (condition.includes("thunderstorm") ||
     condition.includes("squalls") ||
     condition.includes("tornado")) return getStorm;
@@ -60,7 +60,7 @@ function chooseIcon(condition) {
     condition.includes("fog") ||
     condition.includes("ash")) {
     return getPartSun;
-  } else return getCloud;
+  } else return getErr;
 }
 function condenseWeather(condition) {
   condition = condition.toLowerCase();
@@ -153,7 +153,7 @@ const clock = new ClockFace({
     if (this.showWeather) {
       g.drawImage(w_icon(), this.centerDatesScaleX, this.center.y - 8 * this.scale);
       // g.drawString(condenseWeather(curr.txt), this.centerDatesScaleX, this.center.y + 24 * this.scale);
-      g.drawString(curr.temp - 273 + "°C", this.centerDatesScaleX, this.center.y + 44 * this.scale); //48
+      g.drawString((curr.temp === undefined ? 273 : curr.temp ) - 273 + "°C", this.centerDatesScaleX, this.center.y + 44 * this.scale); //48
 
     }
     if (this.showSteps)
