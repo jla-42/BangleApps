@@ -58,6 +58,7 @@ function chooseIcon(condition) {
     condition.includes("sand") ||
     condition.includes("dust") ||
     condition.includes("fog") ||
+    condition.includes("overcast") ||
     condition.includes("ash")) {
     return getPartSun;
   } else return getErr;
@@ -84,6 +85,7 @@ function condenseWeather(condition) {
     condition.includes("sand") ||
     condition.includes("dust") ||
     condition.includes("fog") ||
+    condition.includes("overcast") ||
     condition.includes("ash")) {
     return "scattered";
   } else { return "N/A"; }
