@@ -37,7 +37,7 @@ Based on function from the Bangle weather app so it should handle all of the con
 sent from gadget bridge.
 */
 function chooseIcon(condition) {
-  condition = condition === undefined ? "no data" : condition.toLowerCase();
+  condition = condition.toLowerCase();
   if (condition.includes("thunderstorm") ||
     condition.includes("squalls") ||
     condition.includes("tornado")) return getStorm;
@@ -134,7 +134,7 @@ const clock = new ClockFace({
     let steps = Bangle.getHealthStatus("day").steps;
     let curr = w.get(); // Get weather from weather app.
     // const temp = locale.temp(curr.temp - 273.15).match(/^(\D*\d*)(.*)$/);
-    let w_icon = chooseIcon(curr.txt);
+    let w_icon = chooseIcon(curr.txt === undefined ? "no data" : curr.txt );
 
 
     g.setFontAlign(1, 0).setFont("Vector", 90 * this.scale);
