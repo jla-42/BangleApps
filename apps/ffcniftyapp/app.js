@@ -134,8 +134,8 @@ const clock = new ClockFace({
     let steps = Bangle.getHealthStatus("day").steps;
     let curr = w.get(); // Get weather from weather app.
     // const temp = locale.temp(curr.temp - 273.15).match(/^(\D*\d*)(.*)$/);
-    let w_icon = chooseIcon(curr.txt === undefined ? "no data" : curr.txt );
-
+    //let w_icon = chooseIcon(curr.txt === undefined ? "no data" : curr.txt );
+    let w_icon = chooseIcon(curr.txt);
 
     g.setFontAlign(1, 0).setFont("Vector", 90 * this.scale);
     g.drawString(format(hour), this.centerTimeScaleX, this.center.y - 31 * this.scale);
