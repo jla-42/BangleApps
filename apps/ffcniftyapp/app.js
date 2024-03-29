@@ -153,7 +153,7 @@ const clock = new ClockFace({
     if (this.showWeather) {
       g.drawImage(w_icon(), this.centerDatesScaleX, this.center.y - 8 * this.scale);
       // g.drawString(condenseWeather(curr.txt), this.centerDatesScaleX, this.center.y + 24 * this.scale);
-      g.drawString(curr.temp - 273 + "°C", this.centerDatesScaleX, this.center.y + 44 * this.scale); //48
+      g.drawString(curr.temp - 273.15 + "°C", this.centerDatesScaleX, this.center.y + 44 * this.scale); //48
 
     }
     if (this.showSteps)
