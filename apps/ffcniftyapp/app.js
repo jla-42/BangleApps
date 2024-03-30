@@ -6,6 +6,9 @@ function getSun() {
   return require("heatshrink").decompress(atob("kEggILIgOAAZkDAYPAgeBwPAgIFBBgPhw4TBp/yAYMcnADBnEcAYMwhgDBsEGgE/AYP8AYYLDCYgbDEYYrD8fHIwI7CIYZLDL54AHA=="));
 }
 function getPartSun() {
+  return require("heatshrink").decompress(atob("kcjwIVSgOAAgUwAYUGAYVgBoQHBkAIBocIDIX4CIcOAYMYg/wgECgODgE8oFAmEDxEYgYZBgQLBGYNAg/ggcYgANBAIIxBsPAG4MYsAIBoQ3ChAQCgI4BHYUEBgUADIIPBh///4GBv//8Cda"));
+}
+function getPartRain() {
   return require("heatshrink").decompress(atob("kEggIHEmADJjEwsEAjkw8EAh0B4EAg35wEAgP+CYMDwv8AYMDBAP2g8HgH+g0DBYMMgPwAYX8gOMEwMG3kAg8OvgSBjg2BgcYGQIcBAY5CBg0Av//HAM///4MYgNBEIMOCoUMDoUAnBwGkEA"));
 }
 function getCloud() {
