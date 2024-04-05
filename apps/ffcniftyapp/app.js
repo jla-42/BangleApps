@@ -139,7 +139,9 @@ const clock = new ClockFace({
     const monthName = require("date_utils").month(month, 1);
     const dayName = require("date_utils").dow(date.getDay(), 1);
     let steps = Bangle.getHealthStatus("day").steps;
-    let curr = w.get(); // Get weather from weather app.
+    let curr = (w.get() === undefined ? "no data" : w.get()); // Get weather from weather app.
+    let cWea =(curr === "no data" ?  "no data" : curr.txt);
+    let cTemp= (curr === "no data" ? 273 : curr.temp);
     // const temp = locale.temp(curr.temp - 273.15).match(/^(\D*\d*)(.*)$/);
     let w_icon = chooseIcon(curr.txt === undefined ? "no data" : curr.txt );
     //let w_icon = chooseIcon(curr.txt);
@@ -160,7 +162,7 @@ const clock = new ClockFace({
     if (this.showWeather) {
       g.drawImage(w_icon(), this.centerDatesScaleX, this.center.y - 8 * this.scale);
       // g.drawString(condenseWeather(curr.txt), this.centerDatesScaleX, this.center.y + 24 * this.scale);
-      g.drawString((curr.temp === undefined ? 273 : curr.temp ) - 273 + "°C", this.centerDatesScaleX, this.center.y + 44 * this.scale); //48
+      g.drawString((cTemp === undefined ? 273 : cTemp ) - 273 + "°C", this.centerDatesScaleX, this.center.y + 44 * this.scale); //48
 
     }
     if (this.showSteps)
