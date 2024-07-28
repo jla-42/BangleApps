@@ -16,7 +16,7 @@ if (storage.read(SETTINGS_FILE) === undefined) {
 }
 
 let saved = storage.readJSON(SETTINGS_FILE, 1) || {};
-const disabledFormat = v => v ? /*LANG*/"Disabled" : "---"  ;
+//const disabledFormat = v => v ? /*LANG*/"Disabled" : "---"  ;
 
 // Wake on menu
 const wakeOnMenu = {
