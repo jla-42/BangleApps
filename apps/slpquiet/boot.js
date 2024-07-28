@@ -19,7 +19,11 @@ if (typeof (global.sleeplog || {}).trigger === "object") {
         'disableWakeOnTwistWhenSleep': 0
       };
       Object.keys(DEFAULTS).forEach(k => {
-        if (aSettings[k] === undefined) aSettings[k] = DEFAULTS[k];
+        if (aSettings[k] === undefined) {
+          aSettings[k] = DEFAULTS[k];
+          print("value " + k + "is missing")
+        }
+
       });
 
       if (aSettings && aSettings['quietWhenSleep']) {
