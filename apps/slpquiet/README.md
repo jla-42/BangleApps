@@ -1,14 +1,18 @@
 # Sleep Quiet
 
-Set Quiet mode (or alarms only mode), when the sleep tracking app detects sleep (each 10 min evaluated)
+Set Quiet mode (or alarms only mode) and disable wake on on twist, tap, double tap and face up, when the sleep tracking app detects sleep (each 10 min evaluated)
 
 ## Usage
 
 When activated, app disables all notifications / all except alarms when sleep detected. 
 
+Also, it is possible to deactivate wake on on twist, tap, double tap and face up to preseve battery when sleep detected.
+Wake on button press is not affected. (also not possible to deactivate as this is the least power demanding option)
+
 ## Controls
 
 In the app you can activate / deactivate the functionality and define if all notifications / all except alarms are to be silenced.
+In the submenu "Disable wake on event when asleep" you can define which wake on "event" is to be disabled during sleep, once detects wake up, the previous state is restored. So if you e.g. select the option to disable wake on twist and this option is already disabled, nothing gets changed.
 
 ## Creator
 

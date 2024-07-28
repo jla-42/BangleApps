@@ -1,2 +1,3 @@
 0.01: New App!
 0.02: added check if settings file exists and create if missing
+0.03: added deactivation toggle of wake on twist, tap, double tap and face up when asleep

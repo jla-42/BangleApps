@@ -12,7 +12,11 @@ if (typeof (global.sleeplog || {}).trigger === "object") {
       let aSettings = require('Storage').readJSON('quietSwitch.json', 1) || {};
       const DEFAULTS = {
         'quietWhenSleep': false,
-        'quietMode': 1
+        'quietMode': 1,
+        'disableWakeOnFaceUpWhenSleep': false,
+        'disableWakeOnTouchWhenSleep': false,
+        'disableWakeOnDoubleTapWhenSleep': false,
+        'disableWakeOnTwistWhenSleep': false
       };
       Object.keys(DEFAULTS).forEach(k => {
         if (aSettings[k] === undefined) aSettings[k] = DEFAULTS[k];
@@ -30,6 +34,24 @@ if (typeof (global.sleeplog || {}).trigger === "object") {
           if (current !== quietMode) {
             console.log("fallen asleep");
             bSettings.quiet = quietMode;
+            aSettings.wakeOnDoubleTapNormal = bSettings.options.wakeOnDoubleTap;
+            aSettings.wakeOnTouchNormal = bSettings.options.wakeOnTouch;
+            aSettings.wakeOnFaceUpNormal = bSettings.options.wakeOnFaceUp;
+            aSettings.wakeOnTwistNormal = bSettings.options.wakeOnTwist;
+            
+            if (aSettings.disableWakeOnFaceUpWhenSleep === true){
+              bSettings.options.wakeOnFaceUp = false;
+            }
+            if (aSettings.disableWakeOnTouchWhenSleep === true){
+              bSettings.options.wakeOnTouch = false;
+            }
+            if (aSettings.disableWakeOnDoubleTapWhenSleep === true){
+              bSettings.options.wakeOnDoubleTap = false;
+            }
+            if (aSettings.disableWakeOnTwistWhenSleep === true){
+              bSettings.options.wakeOnTwist = false;
+            }
+
             require("Storage").writeJSON("setting.json", bSettings);
           }
           delete bSettings;
@@ -42,6 +64,20 @@ if (typeof (global.sleeplog || {}).trigger === "object") {
           if (current !== 0) {
             console.log("woken up");
             bSettings.quiet = 0;
+            if (aSettings.disableWakeOnFaceUpWhenSleep === true){
+              bSettings.options.wakeOnFaceUp = aSettings.wakeOnFaceUpNormal;
+            }
+            if (aSettings.disableWakeOnTouchWhenSleep === true){
+              bSettings.options.wakeOnTouch = aSettings.wakeOnTouchNormal;
+            }
+            if (aSettings.disableWakeOnDoubleTapWhenSleep === true){
+              bSettings.options.wakeOnDoubleTap = aSettings.wakeOnDoubleTapNormal;
+            }
+            if (aSettings.disableWakeOnTwistWhenSleep === true){
+              bSettings.options.wakeOnTwist =  aSettings.wakeOnTwistNormal;
+            }
+
+
             require("Storage").writeJSON("setting.json", bSettings);
           }
           delete bSettings;
