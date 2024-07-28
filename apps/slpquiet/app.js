@@ -29,8 +29,8 @@ const wakeOnMenu = {
     }
   },
   "Wake on FaceUp": {
-    value: "wakeOnFaceUpWhenSleep" in saved,
-   format: v => v ? /*LANG*/ "---" : "Disabled" ,
+    value: saved.wakeOnFaceUpWhenSleep,
+    format: v => v ? /*LANG*/ "---" : "Disabled" ,
     min: 0, max: 1, step: 1,
     onchange: v => {
       saved.disableWakeOnFaceUpWhenSleep = v;
@@ -38,7 +38,7 @@ const wakeOnMenu = {
     }
   },
   "Wake on Tap": {
-    value: "wakeOnTouchWhenSleep" in saved,
+    value: saved.wakeOnTouchWhenSleep,
   format: v => v ? /*LANG*/"---" : "Disabled",
     min: 0, max: 1, step: 1,
     onchange: v => {
@@ -47,7 +47,7 @@ const wakeOnMenu = {
     }
   },
   "Wake on double Tap": {
-    value: "wakeOnDoubleTapWhenSleep" in saved,
+    value: saved.wakeOnDoubleTapWhenSleep,
    format: v => v ? /*LANG*/"---" : "Disabled",
     min: 0, max: 1, step: 1,
     onchange: v => {
@@ -56,7 +56,7 @@ const wakeOnMenu = {
     }
   },
   "Wake on Twist": {
-    value: "wakeOnTwistWhenSleep" in saved,
+    value: saved.wakeOnTwistWhenSleep,
   format: v => v ? /*LANG*/"---" : "Disabled",
     min: 0, max: 1, step: 1,
     onchange: v => {
@@ -73,7 +73,7 @@ var mainmenu = {
   },
 
   /*LANG*/"Quiet Switch": {
-    value: "quietWhenSleep" in saved,
+    value: saved.quietWhenSleep,
     format: v => v ? /*LANG*/"On" : "Off",
     min: 0, max: 1, step: 1,
     onchange: v => {
@@ -82,7 +82,7 @@ var mainmenu = {
     }
   },
   "Quiet Mode": {
-    value: "quietMode" in saved,
+    value: saved.quietMode,
     format: v => v ? /*LANG*/"Alerts" : "Silent",
     min: 0, max: 1, step: 1,
     onchange: v => {
