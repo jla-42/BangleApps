@@ -31,7 +31,6 @@ const wakeOnMenu = {
   "Wake on FaceUp": {
     value: saved.wakeOnFaceUpWhenSleep,
     format: v => v ? /*LANG*/ "---" : "Disabled" ,
-    min: 0, max: 1, step: 1,
     onchange: v => {
       saved.disableWakeOnFaceUpWhenSleep = v;
       storage.writeJSON(SETTINGS_FILE, saved);
@@ -40,7 +39,6 @@ const wakeOnMenu = {
   "Wake on Tap": {
     value: saved.wakeOnTouchWhenSleep,
   format: v => v ? /*LANG*/"---" : "Disabled",
-    min: 0, max: 1, step: 1,
     onchange: v => {
       saved.disableWakeOnTouchWhenSleep = v;
       storage.writeJSON(SETTINGS_FILE, saved);
@@ -49,7 +47,6 @@ const wakeOnMenu = {
   "Wake on double Tap": {
     value: saved.wakeOnDoubleTapWhenSleep,
    format: v => v ? /*LANG*/"---" : "Disabled",
-    min: 0, max: 1, step: 1,
     onchange: v => {
       saved.disableWakeOnDoubleTapWhenSleep = v;
       storage.writeJSON(SETTINGS_FILE, saved);
@@ -58,7 +55,6 @@ const wakeOnMenu = {
   "Wake on Twist": {
     value: saved.wakeOnTwistWhenSleep,
   format: v => v ? /*LANG*/"---" : "Disabled",
-    min: 0, max: 1, step: 1,
     onchange: v => {
       saved.disableWakeOnTwistWhenSleep = v;
       storage.writeJSON(SETTINGS_FILE, saved);
