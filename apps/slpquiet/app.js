@@ -16,7 +16,6 @@ if (storage.read(SETTINGS_FILE) === undefined) {
 }
 
 let saved = storage.readJSON(SETTINGS_FILE, 1) || {};
-//const disabledFormat = v => v ? /*LANG*/"Disabled" : "---"  ;
 print("saved is : " + saved);
 // Wake on menu
 const wakeOnMenu = {
@@ -29,32 +28,36 @@ const wakeOnMenu = {
     }
   },
   "Wake on FaceUp": {
-    value: saved.wakeOnFaceUpWhenSleep,
-    format: v => v ? /*LANG*/ "---" : "Disabled" ,
+    value: saved.disableWakeOnFaceUpWhenSleep,
+    format: v => v ? /*LANG*/"Disabled" :"---"  ,
+    min: 0, max: 1, step: 1,
     onchange: v => {
-      saved.disableWakeOnFaceUpWhenSleep = v;
+     saved.disableWakeOnFaceUpWhenSleep = v;
       storage.writeJSON(SETTINGS_FILE, saved);
     }
   },
   "Wake on Tap": {
-    value: saved.wakeOnTouchWhenSleep,
-  format: v => v ? /*LANG*/"---" : "Disabled",
+    value: saved.disableWakeOnTouchWhenSleep,
+  format: v => v ? /*LANG*/"Disabled" :"---",
+ min: 0, max: 1, step: 1,
     onchange: v => {
       saved.disableWakeOnTouchWhenSleep = v;
       storage.writeJSON(SETTINGS_FILE, saved);
     }
   },
   "Wake on double Tap": {
-    value: saved.wakeOnDoubleTapWhenSleep,
-   format: v => v ? /*LANG*/"---" : "Disabled",
+    value: saved.disableWakeOnDoubleTapWhenSleep,
+   format: v => v ? /*LANG*/"Disabled" :"---",
+min: 0, max: 1, step: 1,
     onchange: v => {
       saved.disableWakeOnDoubleTapWhenSleep = v;
       storage.writeJSON(SETTINGS_FILE, saved);
     }
   },
   "Wake on Twist": {
-    value: saved.wakeOnTwistWhenSleep,
-  format: v => v ? /*LANG*/"---" : "Disabled",
+    value: saved.disableWakeOnTwistWhenSleep,
+  format: v => v ? /*LANG*/"Disabled" :"---",
+ min: 0, max: 1, step: 1,
     onchange: v => {
       saved.disableWakeOnTwistWhenSleep = v;
       storage.writeJSON(SETTINGS_FILE, saved);
@@ -90,7 +93,7 @@ var mainmenu = {
   /*LANG*/"Disable wake on event when asleep": {
     onchange: () => {
       E.showMenu(wakeOnMenu);
-      print (saved);
+     // print (saved);
     }
   },
 
