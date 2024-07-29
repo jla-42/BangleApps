@@ -45,15 +45,19 @@ if (typeof (global.sleeplog || {}).trigger === "object") {
             
             if (aSettings.disableWakeOnFaceUpWhenSleep === 1){
               bSettings.options.wakeOnFaceUp = false;
+              console.log("disabling wakeOnFaceUp");
             }
             if (aSettings.disableWakeOnTouchWhenSleep === 1){
               bSettings.options.wakeOnTouch = false;
+              console.log("disabling wakeOnTouch");
             }
             if (aSettings.disableWakeOnDoubleTapWhenSleep === 1){
               bSettings.options.wakeOnDoubleTap = false;
+              console.log("disabling wakeOnDoubleTap");
             }
             if (aSettings.disableWakeOnTwistWhenSleep === 1){
               bSettings.options.wakeOnTwist = false;
+              console.log("disabling wakeOnTwist");
             }
 
             require("Storage").writeJSON("setting.json", bSettings);
@@ -70,15 +74,19 @@ if (typeof (global.sleeplog || {}).trigger === "object") {
             bSettings.quiet = 0;
             if (aSettings.disableWakeOnFaceUpWhenSleep === 1){
               bSettings.options.wakeOnFaceUp = aSettings.wakeOnFaceUpNormal;
+              console.log("enabling wakeOnTwist");
             }
             if (aSettings.disableWakeOnTouchWhenSleep === 1){
               bSettings.options.wakeOnTouch = aSettings.wakeOnTouchNormal;
+              console.log("enabling wakeOnTwist");
             }
             if (aSettings.disableWakeOnDoubleTapWhenSleep === 1){
               bSettings.options.wakeOnDoubleTap = aSettings.wakeOnDoubleTapNormal;
+              console.log("enabling wakeOnTwist");
             }
             if (aSettings.disableWakeOnTwistWhenSleep === 1){
               bSettings.options.wakeOnTwist =  aSettings.wakeOnTwistNormal;
+              console.log("enabling wakeOnTwist");
             }
 
 
