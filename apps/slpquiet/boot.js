@@ -89,7 +89,7 @@ if (typeof (global.sleeplog || {}).trigger === "object") {
           
                 if (aSettings && aSettings['quietWhenSleep']) {
                   console.log("the sleep status is: " + data.status);
-                  let quietMode = aSettings['quietMode'];
+                //   let quietMode = aSettings['quietMode'];
                   delete aSettings;
 
 
