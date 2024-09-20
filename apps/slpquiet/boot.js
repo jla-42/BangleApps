@@ -84,7 +84,7 @@ if (typeof(global.sleeplog || {}).trigger === "object") { // then add your param
 
                 if (aSettings && aSettings['quietWhenSleep']) {
                     console.log("the sleep status is: " + data.status);
-                    let quietMode = aSettings['quietMode'];
+                    // let quietMode = aSettings['quietMode'];
                     delete aSettings;
                     let bSettings = require("Storage").readJSON('setting.json', true) || {};
                     let current = 0 | bSettings.quiet;
